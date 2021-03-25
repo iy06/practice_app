@@ -1,28 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Hand from '../../components/hand';
+//Enum型HandTypeの読み込み
+import { HandType } from '../../interfaces/handType';
 
 // selectHand   = グー,チョキ,パーの初期値
 // selectedHand = 選択されたじゃんけんの値
 // clickHand    =　子コンポーネントから渡されたイベント発火の値
 
-export default class Index extends React.Component {
+interface State {
+  selectHand: HandType;
+}
+
+// ジェネリックでStateの型をinterface Stateに設定
+export default class Index extends React.Component< {}, State > {
   // じゃんけんの手の初期値
-  constructor() {
+  constructor( props: {} ) {
     // thisを使う為に、クラスコンポーネントでconstructor()を定義する場合はsuper()を記述する
-    super();
+    super( props );
     this.state = {
-      selectHand: 0,
+      selectHand: HandType.Rock,
     };
   }
 
-  handleOnClick = (val) => {
+  handleOnClick = (val: HandType): void => {
     this.setState({ selectHand: val });
     console.log(this.state);
   }
 
   render() {
-    const handTypes = [ 0, 1, 2 ]
+    // データ定義
+    const handTypes: HandType[] = [ HandType.Rock, HandType.Scissors, HandType.Paper ]
+
     return (
       <div
         style={{
@@ -33,9 +42,9 @@ export default class Index extends React.Component {
       >
         <h1>じゃんけんページ</h1>
         <div style={{ display: 'flex' }}>
-          { handTypes.map((handType) => (
+          { handTypes.map( ( handType: HandType ) => (
             <Hand selectHand={ handType } selectedHand={ this.state.selectHand } clickHand={ this.handleOnClick }/>
-          ))}
+          ) ) }
         </div>
 
         <Link to='/'>
@@ -44,5 +53,7 @@ export default class Index extends React.Component {
         </Link>
       </div>
     )
+
   }
+
 }

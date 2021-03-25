@@ -1,7 +1,16 @@
 import React from 'react';
+//Enum型HandTypeの読み込み
+import { HandType } from '../interfaces/handType';
+
+interface Props {
+  selectHand: HandType;
+  selectedHand: HandType;
+  clickHand: ( val: HandType ) => void;
+}
 
 // 子コンポーネント
-export default class Hand extends React.Component {
+export default class Hand extends React.Component< Props, {} > {
+
   render () {
     console.log(this.props);
     const imgSize = 100;
@@ -24,6 +33,7 @@ export default class Hand extends React.Component {
       </div>
     );
   }
+
 }
 
 // {/* グー */}
