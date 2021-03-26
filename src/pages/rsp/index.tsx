@@ -69,7 +69,7 @@ export default class Index extends React.Component< {}, State > {
         resultString: 'あいこで',
       })
     } else if ( result === 2 ) {
-      return this.setState({ 
+      return this.setState({
         resultString: '勝ち',
         winCount: this.state.winCount + 1,
       })
@@ -109,7 +109,7 @@ export default class Index extends React.Component< {}, State > {
 
         <Link to='/'>
           <h1>じゃんけんを終了する</h1>
-          <h4>※結果が発表させれます</h4>
+          <h4 style={{ textAlign: 'center' }}>※結果が発表されます。</h4>
         </Link>
       </div>
     )
