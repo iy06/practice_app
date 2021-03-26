@@ -12,13 +12,12 @@ interface Props {
 export default class Hand extends React.Component< Props, {} > {
 
   render () {
-    console.log(this.props);
-    const imgSize = 100;
-    const handTypes = ['rock', 'scissors', 'paper']
+    const imgSize   = 100;
+    const handTypes = [ 'rock', 'scissors', 'paper' ]
     return (
       <div>
         <button onClick = { () => {
-          this.props.clickHand(this.props.selectHand);
+          this.props.clickHand( this.props.selectHand );
         } }>
           <img
             style={{
@@ -26,7 +25,7 @@ export default class Hand extends React.Component< Props, {} > {
               height:  imgSize,
               opacity: this.props.selectedHand === this.props.selectHand ? '1.0' : '0.3',
             }}
-            src={ `images/${ handTypes[this.props.selectHand] }.jpg`}
+            src={ `images/${ handTypes[ this.props.selectHand ] }.jpg`}
             alt='rock'
           />
         </button>

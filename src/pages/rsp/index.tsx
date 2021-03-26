@@ -55,7 +55,7 @@ export default function Index() {
   // Mouthing
   // 初回だけ発火
   useEffect( () => {
-    alert('手を選ぶと、勝敗が決まるよ\n手を選んでね!');
+    alert( '手を選ぶと、勝敗が決まるよ\n手を選んでね!' );
     // Unmounting
     return () => {
       alert( `戦績\n${ battleCountVal.current }戦中、${ winCountVal.current }戦勝利しました。` );
